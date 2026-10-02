@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>Siento Furniture</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <p>SIENTO</p>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="#cart"><i class="fa-solid fa-cart-shopping"></i></a>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <section id="hero">
+        <div class="hero-slider">
+          <article class="hero-slide">
+            <img src="/images/sofa.png" alt="Siento Furniture Hero Image" />
+            <div class="hero-text">
+              <p class="hero-fade-text">SIENTO FURNITURE</p>
+              <h1>Made to Feel Like Home</h1>
+              <p>
+                Furniture shaped with intention, bringing warmth, quiet
+                character, and a sense of belonging to the spaces we call our
+                own.
+              </p>
+            </div>
+          </article>
+          <article class="hero-slide">
+            <img
+              src="images/hero2-image.jpg"
+              alt="Siento Furniture Hero Image"
+            />
+            <div class="hero-text">
+              <p class="hero-fade-text">THE ART OF COMFORT</p>
+              <h2>For Moments Worth Staying In</h2>
+              <p>
+                A softer place to land, a slower moment to keep — pieces created
+                for mornings in silence and evenings that linger.
+              </p>
+            </div>
+          </article>
+          <article class="hero-slide">
+            <img
+              src="images/hero3-image.jpg"
+              alt="Siento Furniture Hero Image"
+            />
+            <div class="hero-text">
+              <p class="hero-fade-text">THE SIENTO COLLECTION</p>
+              <h2>Give Your Space a Story</h2>
+              <p>
+                Timeless forms, natural textures, and thoughtful details — made
+                to live with you, and become part of the story of your home.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <button
+          class="hero-arrow hero-arrow-left"
+          aria-label="Previous picture"
+        >
+          &lt;
+        </button>
+        <button class="hero-arrow hero-arrow-right" aria-label="Next picture">
+          &gt;
+        </button>
+        <div class="hero-indicators">
+          <button class="indicator active" aria-label="Picture 1"></button>
+          <button class="indicator" aria-label="Picture 2"></button>
+          <button class="indicator" aria-label="Picture 3"></button>
+        </div>
+      </section>
+
+      <!-- Gallery Section -->
+      <section id="gallery">
+        <h2>Our Collection</h2>
+        <div class="gallery-buttons">
+          <button>All</button>
+          <button>Sofas</button>
+          <button>Tables</button>
+          <button>Chairs</button>
+        </div>
+
+        <!-- Gallery Cards -->
+        <div class="gallery-cards">
+          <article class="product-card">
+            <div class="product-image">
+              <img
+                src="/images/luma-sofa.jpeg"
+                alt="Luma Sofa for Living Room"
+              />
+            </div>
+            <button class="favorite" aria-label="Add to favorites">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+
+            <div class="product-info">
+              <h3>Luma Sofa</h3>
+              <p>Soft textures made for quiet moments.</p>
+              <div class="product-bottom">
+                <span>1 299 €</span>
+                <button>View</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img
+                src="/images/arden-dining-table.jpeg"
+                alt="Arden Dining Table"
+              />
+            </div>
+            <button class="favorite" aria-label="Add to favorites">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+
+            <div class="product-info">
+              <h3>Arden Dining Table</h3>
+              <p>Natural warmth for everyday gatherings.</p>
+              <div class="product-bottom">
+                <span>899 €</span>
+                <button>View</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img
+                src="/images/milo-lounge-chair.jpeg"
+                alt="Milo Lounge Chair"
+              />
+            </div>
+            <button class="favorite" aria-label="Add to favorites">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+
+            <div class="product-info">
+              <h3>Milo Lounge Chair</h3>
+              <p>A quiet shape designed for comfort.</p>
+              <div class="product-bottom">
+                <span>649 €</span>
+                <button>View</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="/images/siena-dining-set.jpeg" alt="Siena Dining Set" />
+            </div>
+            <button class="favorite" aria-label="Add to favorites">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+
+            <div class="product-info">
+              <h3>Siena Dining Set</h3>
+              <p>Warm forms made for shared moments.</p>
+              <div class="product-bottom">
+                <span>1 499 €</span>
+                <button>View</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img
+                src="/images/sora-lounge-chair.jpeg"
+                alt="Sora Lounge Chair"
+              />
+            </div>
+            <button class="favorite" aria-label="Add to favorites">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+
+            <div class="product-info">
+              <h3>Sora Lounge Chair</h3>
+              <p>Designed for sunlit spaces and slow days.</p>
+              <div class="product-bottom">
+                <span>579 €</span>
+                <button>View</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="/images/sora-bar-stool.jpeg" alt="Sora Bar Stool" />
+            </div>
+            <button class="favorite" aria-label="Add to favorites">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+
+            <div class="product-info">
+              <h3>Sora Bar Stool</h3>
+              <p>A refined seat for elevated moments.</p>
+              <div class="product-bottom">
+                <span>120 €</span>
+                <button>View</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 Siento Furniture. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
