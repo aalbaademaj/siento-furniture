@@ -13,11 +13,13 @@
   <body>
     <!-- Header -->
     <header>
-      <p>SIENTO</p>
+      <a href="#" class="logo">
+        <img src="/images/logo.png" alt="Siento Furniture Logo" />
+      </a>
       <nav>
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#products">Products</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#gallery">Products</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -30,7 +32,10 @@
       <section id="hero">
         <div class="hero-slider">
           <article class="hero-slide">
-            <img src="/images/sofa.png" alt="Siento Furniture Hero Image" />
+            <img
+              src="/images/logo-picture.jpeg"
+              alt="Siento Furniture Hero Image"
+            />
             <div class="hero-text">
               <p class="hero-fade-text">SIENTO FURNITURE</p>
               <h1>Made to Feel Like Home</h1>
@@ -42,10 +47,7 @@
             </div>
           </article>
           <article class="hero-slide">
-            <img
-              src="images/hero2-image.jpg"
-              alt="Siento Furniture Hero Image"
-            />
+            <img src="images/slide2.png" alt="Siento Furniture Hero Image" />
             <div class="hero-text">
               <p class="hero-fade-text">THE ART OF COMFORT</p>
               <h2>For Moments Worth Staying In</h2>
@@ -56,10 +58,7 @@
             </div>
           </article>
           <article class="hero-slide">
-            <img
-              src="images/hero3-image.jpg"
-              alt="Siento Furniture Hero Image"
-            />
+            <img src="images/slide3.png" alt="Siento Furniture Hero Image" />
             <div class="hero-text">
               <p class="hero-fade-text">THE SIENTO COLLECTION</p>
               <h2>Give Your Space a Story</h2>
@@ -219,10 +218,72 @@
             </div>
           </article>
         </div>
+
+        <button class="load-more">Show More</button>
+      </section>
+
+      <!-- About Section -->
+      <section id="about">
+        <div class="about-image">
+          <img src="/images/about-us.jpeg" alt="About Siento Furniture" />
+        </div>
+        <div class="about-text">
+          <h2>About Us</h2>
+          <p>
+            Founded in 2025, Siento is more than a brand - it's a lifestyle. We
+            believe that spaces are more than places - they are the silent
+            storytellers of our lives. Our vision is to transcend the ordinary
+            and our mission is to offer ways that transform the way you live and
+            feel.
+          </p>
+        </div>
       </section>
     </main>
+
     <footer>
-      <p>&copy; 2025 Siento Furniture. All rights reserved.</p>
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <img src="/images/logo.png" alt="Siento Furniture Logo" />
+        </a>
+        <p>SIENTO FURNITURE</p>
+      </div>
+
+      <div id="furniture" class="footer-column">
+        <h3>Furniture</h3>
+        <nav>
+          <ul>
+            <li><a href="#sofas">Sofas</a></li>
+            <li><a href="#tables">Tables</a></li>
+            <li><a href="#chairs">Chairs</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div id="about-us" class="footer-column">
+        <h3>About Us</h3>
+        <nav>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div id="contact" class="footer-column">
+        <h3>Contact</h3>
+        <nav>
+          <ul>
+            <li>Address: 123 Furniture Street, Design City</li>
+            <li>Email: info@sientofurniture.com</li>
+            <li>Phone: +358 123 456 789</li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Siento Furniture. All rights reserved.</p>
+      </div>
     </footer>
   </body>
 </html>
