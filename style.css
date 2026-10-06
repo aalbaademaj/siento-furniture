@@ -300,9 +300,9 @@ header > a:last-child:hover {
 }
 
 .gallery-buttons button:hover,
-.gallery-buttons button:first-child,
+.gallery-buttons button.active,
 .load-more:hover {
-  background-color: var(--olive);
+  background: var(--olive);
   border-color: var(--olive);
   color: white;
 }

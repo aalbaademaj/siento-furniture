@@ -2,6 +2,9 @@ const slides = document.querySelectorAll('.hero-slide');
 const indicators = document.querySelectorAll('.indicator');
 const previousButton = document.querySelector('.hero-arrow-left');
 const nextButton = document.querySelector('.hero-arrow-right');
+const favoriteButtons = document.querySelectorAll('.favorite');
+const filterButtons = document.querySelectorAll('.gallery-buttons button');
+const productCards = document.querySelectorAll('.product-card');
 
 let currentSlide = 0;
 
@@ -52,3 +55,36 @@ indicators.forEach((indicator, index) => {
 });
 
 setInterval(nextSlide, 6000);
+
+// Favorite button funktionalitet
+favoriteButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const heart = button.querySelector('i');
+
+    heart.classList.toggle('fa-regular');
+    heart.classList.toggle('fa-solid');
+  });
+});
+
+// Gallery filter funktionalitet
+filterButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    filterButtons.forEach((button) => {
+      button.classList.remove('active');
+    });
+
+    button.classList.add('active');
+
+    const selectedCategory = button.dataset.category;
+
+    productCards.forEach((product) => {
+      const productCategory = product.dataset.category;
+
+      if (selectedCategory === 'all' || selectedCategory === productCategory) {
+        product.style.display = 'block';
+      } else {
+        product.style.display = 'none';
+      }
+    });
+  });
+});
