@@ -5,8 +5,12 @@ const nextButton = document.querySelector('.hero-arrow-right');
 const favoriteButtons = document.querySelectorAll('.favorite');
 const filterButtons = document.querySelectorAll('.gallery-buttons button');
 const productCards = document.querySelectorAll('.product-card');
+const loadMoreButton = document.querySelector('.load-more');
 
 let currentSlide = 0;
+
+let selectedCategory = 'all';
+let productsToShow = 6;
 
 // Hero funktioner, slides och indikatorer
 
@@ -66,6 +70,26 @@ favoriteButtons.forEach((button) => {
   });
 });
 
+// Visa produkter baserat på vald kategori och antal att visa
+function showProducts() {
+  let visibleProducts = 0;
+
+  productCards.forEach((product) => {
+    const productCategory = product.dataset.category;
+
+    if (selectedCategory === 'all' || selectedCategory === productCategory) {
+      if (visibleProducts < productsToShow) {
+        product.style.display = 'block';
+        visibleProducts++;
+      } else {
+        product.style.display = 'none';
+      }
+    } else {
+      product.style.display = 'none';
+    }
+  });
+}
+
 // Gallery filter funktionalitet
 filterButtons.forEach((button) => {
   button.addEventListener('click', () => {
@@ -75,16 +99,21 @@ filterButtons.forEach((button) => {
 
     button.classList.add('active');
 
-    const selectedCategory = button.dataset.category;
+    selectedCategory = button.dataset.category;
 
-    productCards.forEach((product) => {
-      const productCategory = product.dataset.category;
-
-      if (selectedCategory === 'all' || selectedCategory === productCategory) {
-        product.style.display = 'block';
-      } else {
-        product.style.display = 'none';
-      }
-    });
+    showProducts();
   });
+});
+
+showProducts();
+
+loadMoreButton.addEventListener('click', () => {
+  if (loadMoreButton.textContent === 'Show More') {
+    productsToShow += 4;
+    loadMoreButton.textContent = 'Show Less';
+  } else {
+    productsToShow = 6;
+    loadMoreButton.textContent = 'Show More';
+  }
+  showProducts();
 });
