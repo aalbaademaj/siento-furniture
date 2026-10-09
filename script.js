@@ -6,6 +6,9 @@ const favoriteButtons = document.querySelectorAll('.favorite');
 const filterButtons = document.querySelectorAll('.gallery-buttons button');
 const productCards = document.querySelectorAll('.product-card');
 const loadMoreButton = document.querySelector('.load-more');
+const viewButtons = document.querySelectorAll('.view-product');
+const productModal = document.querySelector('.product-modal');
+const closeModal = document.querySelector('.close-modal');
 
 let currentSlide = 0;
 
@@ -88,6 +91,22 @@ function showProducts() {
       product.style.display = 'none';
     }
   });
+
+  let categoryProducts = 0;
+
+  productCards.forEach((product) => {
+    const productCategory = product.dataset.category;
+
+    if (selectedCategory === 'all' || selectedCategory === productCategory) {
+      categoryProducts++;
+    }
+  });
+
+  if (categoryProducts <= 6) {
+    loadMoreButton.style.display = 'none';
+  } else {
+    loadMoreButton.style.display = 'block';
+  }
 }
 
 // Gallery filter funktionalitet
@@ -100,6 +119,8 @@ filterButtons.forEach((button) => {
     button.classList.add('active');
 
     selectedCategory = button.dataset.category;
+    loadMoreButton.textContent = 'Show More';
+    productsToShow = 6;
 
     showProducts();
   });
@@ -107,6 +128,7 @@ filterButtons.forEach((button) => {
 
 showProducts();
 
+// Load more button funktionalitet
 loadMoreButton.addEventListener('click', () => {
   if (loadMoreButton.textContent === 'Show More') {
     productsToShow += 4;
@@ -116,4 +138,28 @@ loadMoreButton.addEventListener('click', () => {
     loadMoreButton.textContent = 'Show More';
   }
   showProducts();
+});
+
+// Modal functionality för product view
+viewButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    productModal.style.display = 'flex';
+    const product = button.closest('.product-card');
+    const productName = product.querySelector('h3').textContent;
+    const productImage = product.querySelector('img').src;
+    const productDescription = product.querySelector('p').textContent;
+    const productPrice = product.querySelector(
+      '.product-bottom span',
+    ).textContent;
+
+    productModal.querySelector('.modal-title').textContent = productName;
+    productModal.querySelector('.modal-image').src = productImage;
+    productModal.querySelector('.modal-description').textContent = productDescription;
+    productModal.querySelector('.modal-price').textContent =
+      productPrice;
+  });
+
+  closeModal.addEventListener('click', () => {
+    productModal.style.display = 'none';
+  });
 });
