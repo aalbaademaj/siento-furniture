@@ -9,11 +9,18 @@ const loadMoreButton = document.querySelector('.load-more');
 const viewButtons = document.querySelectorAll('.view-product');
 const productModal = document.querySelector('.product-modal');
 const closeModal = document.querySelector('.close-modal');
+const cartCountElement = document.querySelector('.cart-count');
+const addToCartButtons = document.querySelectorAll('.add-to-cart');
+const cartIcon = document.querySelector('header a[href="#cart"]');
+const cartDropdown = document.querySelector('.cart-dropdown');
+const cartItemsContainer = document.querySelector('.cart-items');
+const cartTotal = document.querySelector('.cart-total');
 
 let currentSlide = 0;
-
 let selectedCategory = 'all';
 let productsToShow = 6;
+let cartCount = 0;
+let cartItems = [];
 
 // Hero funktioner, slides och indikatorer
 
@@ -154,12 +161,81 @@ viewButtons.forEach((button) => {
 
     productModal.querySelector('.modal-title').textContent = productName;
     productModal.querySelector('.modal-image').src = productImage;
-    productModal.querySelector('.modal-description').textContent = productDescription;
-    productModal.querySelector('.modal-price').textContent =
-      productPrice;
+    productModal.querySelector('.modal-description').textContent =
+      productDescription;
+    productModal.querySelector('.modal-price').textContent = productPrice;
   });
 
   closeModal.addEventListener('click', () => {
     productModal.style.display = 'none';
   });
+});
+
+// Cart funktionalitet
+// Visa antal produkter
+cartCountElement.textContent = cartCount;
+
+// Öppna och stäng kundvagnen
+cartIcon.addEventListener('click', (event) => {
+  event.preventDefault();
+  cartDropdown.classList.toggle('open');
+});
+
+// Lägg till produkter i kundvagnen
+addToCartButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const product = button.closest('.product-card');
+
+    const productName = product.querySelector('h3').textContent;
+    const productPrice = product.querySelector(
+      '.product-bottom span',
+    ).textContent;
+
+    const cartItem = {
+      name: productName,
+      price: productPrice,
+    };
+
+    cartItems.push(cartItem);
+
+    cartCount++;
+    cartCountElement.textContent = cartCount;
+
+    renderCart();
+  });
+});
+
+// Visa produkterna och totalsumman
+function renderCart() {
+  cartItemsContainer.innerHTML = '';
+
+  let total = 0;
+
+  cartItems.forEach((item) => {
+    const itemElement = document.createElement('div');
+    itemElement.classList.add('cart-item');
+
+    const nameElement = document.createElement('span');
+    nameElement.textContent = item.name;
+
+    const priceElement = document.createElement('span');
+    priceElement.textContent = item.price;
+
+    itemElement.append(nameElement, priceElement);
+    cartItemsContainer.appendChild(itemElement);
+
+    const price = Number(item.price.replace(/[^\d,.-]/g, '').replace(',', '.'));
+
+    total += price;
+  });
+
+  cartTotal.textContent = `Total: ${total.toLocaleString('sv-SE')} €`;
+}
+
+// Menu toggle functinalitet
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('header nav');
+
+menuToggle.addEventListener('click', () => {
+  nav.classList.toggle('open');
 });
