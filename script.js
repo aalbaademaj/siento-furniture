@@ -166,10 +166,11 @@ viewButtons.forEach((button) => {
     productModal.querySelector('.modal-price').textContent = productPrice;
   });
 
-  closeModal.addEventListener('click', () => {
+});
+
+ closeModal.addEventListener('click', () => {
     productModal.style.display = 'none';
   });
-});
 
 // Cart funktionalitet
 // Visa antal produkter

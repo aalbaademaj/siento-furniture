@@ -274,12 +274,11 @@ header > a:last-child:hover {
    PRODUCTS
 ========================= */
 
-#products {
-  padding: 100px 6%;
-  background-color: var(--white);
+#gallery {
+  padding: 90px 6%;
+  background-color: var(--cream);
 }
 
-#products > h2,
 #about h2 {
   margin-bottom: 18px;
   font-family: Georgia, 'Times New Roman', serif;
@@ -294,11 +293,6 @@ header > a:last-child:hover {
   font-size: 36px;
   font-weight: 400;
   color: var(--text);
-}
-
-#gallery {
-  padding: 90px 6%;
-  background-color: var(--cream);
 }
 
 /* Category buttons */
@@ -716,7 +710,7 @@ a[href='#cart'] {
 
   /* HERO */
 
-  #home {
+  #hero {
     height: 600px;
   }
 
@@ -749,17 +743,12 @@ a[href='#cart'] {
   }
 
   /* PRODUCTS */
-
-  #products {
-    padding: 70px 20px;
-  }
-
   .gallery-buttons {
     flex-wrap: wrap;
   }
 
   .gallery-cards {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   /* ABOUT */
@@ -788,25 +777,7 @@ a[href='#cart'] {
   .footer-bottom {
     grid-column: auto;
   }
-}
 
-@media (max-width: 600px) {
-  .modal-content {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 20px;
-  }
-
-  .modal-image {
-    height: 250px;
-  }
-}
-
-.menu-toggle {
-  display: none;
-}
-
-@media (max-width: 768px) {
   header nav {
     display: none;
   }
@@ -834,9 +805,7 @@ a[href='#cart'] {
     flex-direction: column;
     gap: 20px;
   }
-}
 
-@media (max-width: 768px) {
   #gallery {
     padding: 60px 20px;
   }
@@ -846,8 +815,9 @@ a[href='#cart'] {
   }
   .product-bottom {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
+    margin-top: 16px;
   }
 
   .product-bottom span {
@@ -856,7 +826,27 @@ a[href='#cart'] {
 
   .product-bottom button {
     width: 100%;
+    min-height: 48px;
     padding: 10px 5px;
-    font-size: 13px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .modal-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .modal-image {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-cards {
+    grid-template-columns: 1fr;
   }
 }
